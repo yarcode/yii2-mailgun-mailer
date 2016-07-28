@@ -1,4 +1,4 @@
-# yarcode/yii2-async-mailer
+# yarcode/yii2-mailgun-mailer
 Mailgun mailer implementation for Yii2
 
 ## Installation
