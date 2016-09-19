@@ -83,7 +83,7 @@ class Message extends BaseMessage
      */
     public function getBcc()
     {
-        return implode(', ', $this->getMessagePart('bcc'));
+        return $this->getMessagePartArray('bcc');
     }
 
     /**
@@ -91,7 +91,7 @@ class Message extends BaseMessage
      */
     public function getCc()
     {
-        return implode(', ', $this->getMessagePart('cc'));
+        return $this->getMessagePartArray('cc');
     }
 
     /**
@@ -107,7 +107,7 @@ class Message extends BaseMessage
      */
     public function getFrom()
     {
-        return implode(', ', $this->getMessagePart('from'));
+        return $this->getMessagePartArray('from');
     }
 
     /**
@@ -131,7 +131,7 @@ class Message extends BaseMessage
      */
     public function getTo()
     {
-        return implode(', ', $this->getMessagePart('to'));
+        return $this->getMessagePartArray('to');
     }
 
     /**
@@ -277,5 +277,15 @@ class Message extends BaseMessage
     {
         $message = $this->messageBuilder->getMessage();
         return ArrayHelper::getValue($message, $name);
+    }
+
+    /**
+     * @param $name
+     * @return array
+     */
+    protected function getMessagePartArray($name)
+    {
+        $list = $this->getMessagePart($name);
+        return strlen($list) ? implode(', ', $list) : [];
     }
 }
