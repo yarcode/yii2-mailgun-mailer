@@ -99,7 +99,7 @@ class Message extends BaseMessage
      */
     public function getCharset()
     {
-        throw new NotSupportedException();
+        return 'UTF-8';
     }
 
     /**
@@ -179,11 +179,12 @@ class Message extends BaseMessage
     }
 
     /**
+     * Not implemented
      * @inheritdoc
      */
     public function setCharset($charset)
     {
-        throw new NotSupportedException();
+        return $this;
     }
 
     /**
