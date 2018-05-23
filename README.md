@@ -1,14 +1,18 @@
-# yarcode/yii2-mailgun-mailer
-Mailgun mailer implementation for Yii2
+# Mailgun mailer component for Yii2 framework
+
+Mailgun is a transactional email cloud service. 
+Say goodbye to your usual sendmail or postfix MTA problems. 
+You can start sending emails via cloud without writing any line of code.
 
 ## Installation
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+The preferred way to install this extension is through
+[composer](http://getcomposer.org/download/).
 
 Either run
 
 ```
-php composer.phar require --prefer-dist yarcode/yii2-mailgun-mailer
+composer require --prefer-dist yarcode/yii2-mailgun-mailer
 ```
 
 or add
@@ -17,13 +21,15 @@ or add
 "yarcode/yii2-mailgun-mailer": "*"
 ```
 
+to the `require` section of your composer.json.
+
 ## Usage
 Configure `YarCode\Yii2\Mailgun\Mailer` as your mailer.
 ```
   'mailer' => [
-      'class' => '\YarCode\Yii2\Mailgun\Mailer',
-      'domain => 'example.org,
-      'apiKey => 'foobar',
+      'class' => \YarCode\Yii2\Mailgun\Mailer::class,
+      'domain => 'example.org',
+      'apiKey => 'CHANGE-ME',
   ],
 ```
 Now you can send your emails as usual.
