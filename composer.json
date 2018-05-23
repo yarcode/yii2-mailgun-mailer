@@ -28,6 +28,12 @@
     "mailgun/mailgun-php": "^2.1",
     "php-http/guzzle6-adapter": "^1.1"
   },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "YarCode\\Yii2\\Mailgun\\": "./src"
