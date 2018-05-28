@@ -2,10 +2,10 @@
 /**
  * @author Alexey Samoylov <alexey.samoylov@gmail.com>
  */
+
 namespace YarCode\Yii2\Mailgun;
 
 use Mailgun\Messages\MessageBuilder;
-use yii\base\NotSupportedException;
 use yii\helpers\ArrayHelper;
 use yii\mail\BaseMessage;
 
@@ -14,13 +14,10 @@ class Message extends BaseMessage
     /** @var MessageBuilder */
     protected $messageBuilder;
 
-    /**
-     * @throws \yii\base\InvalidConfigException
-     */
-    public function init()
+    public function __construct(MessageBuilder $messageBuilder, array $config = [])
     {
-        parent::init();
-        $this->messageBuilder = \Yii::createObject(MessageBuilder::class);
+        $this->messageBuilder = $messageBuilder;
+        parent::__construct($config);
     }
 
     /**
@@ -32,15 +29,6 @@ class Message extends BaseMessage
     }
 
     // MessageInterface implementation
-
-    /**
-     * @inheritdoc
-     */
-    public function attach($fileName, array $options = [])
-    {
-        $this->getMessageBuilder()->addAttachment($fileName, ArrayHelper::getValue($options, 'fileName'));
-        return $this;
-    }
 
     /**
      * @inheritdoc
@@ -60,10 +48,10 @@ class Message extends BaseMessage
     /**
      * @inheritdoc
      */
-    public function embed($fileName, array $options = [])
+    public function attach($fileName, array $options = [])
     {
-        $this->getMessageBuilder()->addInlineImage('@' . $fileName, ArrayHelper::getValue($options, 'fileName'));
-        return basename($fileName);
+        $this->getMessageBuilder()->addAttachment($fileName, ArrayHelper::getValue($options, 'fileName'));
+        return $this;
     }
 
     /**
@@ -84,9 +72,28 @@ class Message extends BaseMessage
     /**
      * @inheritdoc
      */
+    public function embed($fileName, array $options = [])
+    {
+        $this->getMessageBuilder()->addInlineImage('@' . $fileName, ArrayHelper::getValue($options, 'fileName'));
+        return basename($fileName);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getBcc()
     {
         return $this->getMessagePart('bcc');
+    }
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    protected function getMessagePart($name)
+    {
+        $message = $this->messageBuilder->getMessage();
+        return ArrayHelper::getValue($message, $name);
     }
 
     /**
@@ -264,22 +271,11 @@ class Message extends BaseMessage
         return $this;
     }
 
-
     /**
      * @inheritdoc
      */
     public function toString()
     {
         return '';
-    }
-
-    /**
-     * @param $name
-     * @return mixed
-     */
-    protected function getMessagePart($name)
-    {
-        $message = $this->messageBuilder->getMessage();
-        return ArrayHelper::getValue($message, $name);
     }
 }

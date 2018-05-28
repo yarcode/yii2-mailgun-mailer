@@ -21,3 +21,4 @@ install:
 
 script:
   - composer validate --strict
+  - composer test

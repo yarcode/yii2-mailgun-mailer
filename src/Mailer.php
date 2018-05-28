@@ -20,6 +20,18 @@ class Mailer extends BaseMailer
     protected $client;
 
     /**
+     * @throws InvalidConfigException
+     */
+    public function init()
+    {
+        parent::init();
+        if (!isset($this->apiKey, $this->domain)) {
+            throw new InvalidConfigException('Invalid mailer configuration');
+        }
+        $this->client = \Yii::createObject(Mailgun::class, [$this->apiKey]);
+    }
+
+    /**
      * @param string $apiKey
      */
     public function setApiKey($apiKey)
@@ -36,35 +48,12 @@ class Mailer extends BaseMailer
     }
 
     /**
-     * @return Mailgun
-     */
-    public function getClient()
-    {
-        if (empty($this->client)) {
-            $this->client = $this->createClient();
-        }
-        return $this->client;
-    }
-
-    /**
-     * @return Mailgun
-     * @throws InvalidConfigException
-     */
-    protected function createClient()
-    {
-        if (empty($this->apiKey) || empty($this->domain)) {
-            throw new InvalidConfigException('Invalid mailer configuration');
-        }
-        return new Mailgun($this->apiKey);
-    }
-
-    /**
      * @param Message $message
      * @inheritdoc
      */
     protected function sendMessage($message)
     {
-        $this->getClient()->post("{$this->domain}/messages",
+        $this->client->post("{$this->domain}/messages",
             $message->getMessageBuilder()->getMessage(),
             $message->getMessageBuilder()->getFiles()
         );
