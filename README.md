@@ -1,5 +1,7 @@
 # Mailgun mailer component for Yii2 framework
 
+[![Build Status](https://travis-ci.org/yarcode/yii2-mailgun-mailer.svg?branch=master)](https://travis-ci.org/yarcode/yii2-mailgun-mailer)
+
 Mailgun is a transactional email cloud service. 
 Say goodbye to your usual sendmail or postfix MTA problems. 
 You can start sending emails via cloud without writing any line of code.
