@@ -14,10 +14,13 @@ class Message extends BaseMessage
     /** @var MessageBuilder */
     protected $messageBuilder;
 
+    /**
+     * @throws \yii\base\InvalidConfigException
+     */
     public function init()
     {
         parent::init();
-        $this->messageBuilder = new MessageBuilder();
+        $this->messageBuilder = \Yii::createObject(MessageBuilder::class);
     }
 
     /**
