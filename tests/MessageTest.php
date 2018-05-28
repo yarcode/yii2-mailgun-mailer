@@ -16,6 +16,11 @@ class MessageTest extends \PHPUnit\Framework\TestCase
         $this->a = \Yii::createObject(\YarCode\Yii2\Mailgun\Message::class);
     }
 
+    public function testInterface()
+    {
+        $this->assertInstanceOf(\yii\mail\MessageInterface::class, $this->a);
+    }
+
     public function testGetMessageBuilder()
     {
         $this->assertInstanceOf(\Mailgun\Messages\MessageBuilder::class, $this->a->getMessageBuilder());
@@ -23,7 +28,9 @@ class MessageTest extends \PHPUnit\Framework\TestCase
 
     public function testAttachContent()
     {
-        $r = $this->a->attach('test');
+        $r = $this->a->attachContent('test', [
+            'fileName' => 'test.txt',
+        ]);
         $this->assertSame($this->a, $r);
     }
 }

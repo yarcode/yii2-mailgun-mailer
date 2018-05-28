@@ -13,6 +13,15 @@ class MailerTest extends \PHPUnit\Framework\TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->a = \Yii::createObject(\YarCode\Yii2\Mailgun\Mailer::class);
+        $this->a = \Yii::createObject([
+            'class' => \YarCode\Yii2\Mailgun\Mailer::class,
+            'apiKey' => 'test-key',
+            'domain' => 'example.org',
+        ]);
+    }
+
+    public function testInterface()
+    {
+        $this->assertInstanceOf(\yii\mail\MailerInterface::class, $this->a);
     }
 }
