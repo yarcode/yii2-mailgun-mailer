@@ -25,8 +25,7 @@
   },
   "require": {
     "yiisoft/yii2": "~2",
-    "mailgun/mailgun-php": "^2",
-    "php-http/guzzle6-adapter": "^1.1"
+    "mailgun/mailgun-php": "^2"
   },
   "require-dev": {
     "phpunit/phpunit": "^7"
