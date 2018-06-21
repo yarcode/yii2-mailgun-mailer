@@ -276,6 +276,7 @@ class Message extends BaseMessage
      */
     public function toString()
     {
-        return '';
+        $message = $this->getMessageBuilder()->getMessage();
+        return var_export($message, true);
     }
 }

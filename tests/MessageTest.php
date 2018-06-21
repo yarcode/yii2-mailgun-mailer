@@ -33,4 +33,9 @@ class MessageTest extends \PHPUnit\Framework\TestCase
         ]);
         $this->assertSame($this->a, $r);
     }
+
+    public function testToString()
+    {
+        $this->assertInternalType('string', $this->a->toString());
+    }
 }
