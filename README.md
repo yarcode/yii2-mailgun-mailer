@@ -35,6 +35,7 @@ Configure `YarCode\Yii2\Mailgun\Mailer` as your mailer.
       'class' => \YarCode\Yii2\Mailgun\Mailer::class,
       'domain => 'example.org',
       'apiKey => 'CHANGE-ME',
+      'viewPath' => '@common/mail',
   ],
 ```
 Now you can send your emails as usual.
@@ -44,6 +45,20 @@ $message = \Yii::$app->mailer->compose()
   ->setFrom('test@example.org')
   ->setHtmlBody('test body')
   ->setTo('user@example.org');
+
+\Yii::$app->mailer->send($message);
+```
+
+Templates, attachments and embedded images
+```
+$message = \Yii::$app->mailer->compose(['html' =>'welcome-html']) #
+  ->setSubject('test subject')
+  ->setFrom('test@example.org')
+  ->setHtmlBody('test body')
+  ->setTo('user@example.org')
+  ->attach(Yii::getAlias('@common').'/mail/Tweety-bird.jpg')
+  # Reference 'fileName' value with  <img src="cid:daffy_duck.jpg"/> in common/mail/welcome-html.php
+  ->embed(Yii::getAlias('@common').'/mail/daffy_duck-1048.jpg', ['fileName'=>'daffy_duck.jpg']);
 
 \Yii::$app->mailer->send($message);
 ```
