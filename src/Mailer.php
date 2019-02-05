@@ -28,7 +28,7 @@ class Mailer extends BaseMailer
         if (!isset($this->apiKey, $this->domain)) {
             throw new InvalidConfigException('Invalid mailer configuration');
         }
-        $this->client = \Yii::createObject(Mailgun::class, [$this->apiKey]);
+        $this->client = Mailgun::create($this->apiKey);
     }
 
     /**
