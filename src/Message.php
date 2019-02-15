@@ -75,7 +75,7 @@ class Message extends BaseMessage
     public function embed($fileName, array $options = [])
     {
         $this->getMessageBuilder()->addInlineImage('@' . $fileName, ArrayHelper::getValue($options, 'fileName'));
-        return basename($fileName);
+        return 'cid:' . basename($fileName);
     }
 
     /**
