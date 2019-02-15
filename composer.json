@@ -1,5 +1,5 @@
 {
-  "name": "yarcode/yii2-mailgun-mailer",
+  "name": "gpayo/yii2-mailgun-mailer",
   "description": "Mailgun mailer implementation for Yii2",
   "type": "yii2-extension",
   "keywords": [
