@@ -10,7 +10,7 @@
     "mail",
     "api"
   ],
-  "homepage": "http://packagist.org/packages/yarcode/yii2-mailgun-mailer",
+  "homepage": "http://packagist.org/packages/gpayo/yii2-mailgun-mailer",
   "license": "MIT",
   "authors": [
     {
@@ -20,8 +20,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/yarcode/yii2-mailgun-mailer/issues",
-    "source": "https://github.com/yarcode/yii2-mailgun-mailer"
+    "issues": "https://github.com/gpayo/yii2-mailgun-mailer/issues",
+    "source": "https://github.com/gpayo/yii2-mailgun-mailer"
   },
   "require": {
     "yiisoft/yii2": "~2",
