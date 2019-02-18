@@ -42,7 +42,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "YarCode\\Yii2\\Mailgun\\": "./src"
+      "gpayo\\Yii2\\Mailgun\\": "./src"
     }
   }
 }
