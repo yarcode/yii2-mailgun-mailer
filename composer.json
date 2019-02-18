@@ -1,5 +1,5 @@
 {
-  "name": "gpayo/yii2-mailgun-mailer",
+  "name": "YarCode/yii2-mailgun-mailer",
   "description": "Mailgun mailer implementation for Yii2",
   "type": "yii2-extension",
   "keywords": [
@@ -10,7 +10,7 @@
     "mail",
     "api"
   ],
-  "homepage": "http://packagist.org/packages/gpayo/yii2-mailgun-mailer",
+  "homepage": "http://packagist.org/packages/YarCode/yii2-mailgun-mailer",
   "license": "MIT",
   "authors": [
     {
@@ -20,8 +20,8 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/gpayo/yii2-mailgun-mailer/issues",
-    "source": "https://github.com/gpayo/yii2-mailgun-mailer"
+    "issues": "https://github.com/YarCode/yii2-mailgun-mailer/issues",
+    "source": "https://github.com/YarCode/yii2-mailgun-mailer"
   },
   "require": {
     "yiisoft/yii2": "~2",
@@ -42,7 +42,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "gpayo\\Yii2\\Mailgun\\": "./src"
+      "YarCode\\Yii2\\Mailgun\\": "./src"
     }
   }
 }
