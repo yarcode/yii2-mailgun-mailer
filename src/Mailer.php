@@ -18,6 +18,8 @@ class Mailer extends BaseMailer
     protected $domain;
     /** @var Mailgun */
     protected $client;
+    /** @var string */
+    protected $endpoint;
 
     /**
      * @throws InvalidConfigException
@@ -28,7 +30,14 @@ class Mailer extends BaseMailer
         if (!isset($this->apiKey, $this->domain)) {
             throw new InvalidConfigException('Invalid mailer configuration');
         }
-        $this->client = \Yii::createObject(Mailgun::class, [$this->apiKey]);
+        $this->client = \Yii::createObject(Mailgun::class, [$this->apiKey, null, $this->endpoint]);
+    }
+    
+    /**
+     * @param string $endpoint
+     */
+    public function setEndpoint(string $endpoint) {
+        $this->endpoint = $endpoint;
     }
 
     /**
