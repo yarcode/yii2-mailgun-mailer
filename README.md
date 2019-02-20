@@ -1,9 +1,9 @@
 # Mailgun mailer component for Yii2 framework
 
-[![Build Status](https://travis-ci.org/yarcode/yii2-mailgun-mailer.svg?branch=master)](https://travis-ci.org/yarcode/yii2-mailgun-mailer)
-[![Latest Stable Version](https://poser.pugx.org/yarcode/yii2-mailgun-mailer/v/stable)](https://packagist.org/packages/yarcode/yii2-mailgun-mailer)
-[![Total Downloads](https://poser.pugx.org/yarcode/yii2-mailgun-mailer/downloads)](https://packagist.org/packages/yarcode/yii2-mailgun-mailer)
-[![License](https://poser.pugx.org/yarcode/yii2-mailgun-mailer/license)](https://packagist.org/packages/yarcode/yii2-mailgun-mailer)
+[![Build Status](https://travis-ci.org/YarCode/yii2-mailgun-mailer.svg?branch=master)](https://travis-ci.org/YarCode/yii2-mailgun-mailer)
+[![Latest Stable Version](https://poser.pugx.org/YarCode/yii2-mailgun-mailer/v/stable)](https://packagist.org/packages/YarCode/yii2-mailgun-mailer)
+[![Total Downloads](https://poser.pugx.org/YarCode/yii2-mailgun-mailer/downloads)](https://packagist.org/packages/YarCode/yii2-mailgun-mailer)
+[![License](https://poser.pugx.org/YarCode/yii2-mailgun-mailer/license)](https://packagist.org/packages/YarCode/yii2-mailgun-mailer)
 
 Mailgun is a transactional email cloud service. 
 Say goodbye to your usual sendmail or postfix MTA problems. 
@@ -17,13 +17,13 @@ The preferred way to install this extension is through
 Either run
 
 ```
-composer require --prefer-dist yarcode/yii2-mailgun-mailer
+composer require --prefer-dist YarCode/yii2-mailgun-mailer
 ```
 
 or add
 
 ```json
-"yarcode/yii2-mailgun-mailer": "*"
+"YarCode/yii2-mailgun-mailer": "*"
 ```
 
 to the `require` section of your composer.json.
@@ -53,5 +53,5 @@ MIT
     
 ## Links ##
 
-* [GitHub repository](https://github.com/yarcode/yii2-mailgun-mailer)
-* [Composer package](https://packagist.org/packages/yarcode/yii2-mailgun-mailer)
+* [GitHub repository](https://github.com/YarCode/yii2-mailgun-mailer)
+* [Composer package](https://packagist.org/packages/YarCode/yii2-mailgun-mailer)

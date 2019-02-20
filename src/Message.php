@@ -23,7 +23,7 @@ class Message extends BaseMessage
     /**
      * @return MessageBuilder
      */
-    public function getMessageBuilder()
+    public function getMessageBuilder(): MessageBuilder
     {
         return $this->messageBuilder;
     }
@@ -75,7 +75,7 @@ class Message extends BaseMessage
     public function embed($fileName, array $options = [])
     {
         $this->getMessageBuilder()->addInlineImage('@' . $fileName, ArrayHelper::getValue($options, 'fileName'));
-        return basename($fileName);
+        return 'cid:' . basename($fileName);
     }
 
     /**
@@ -278,5 +278,11 @@ class Message extends BaseMessage
     {
         $message = $this->getMessageBuilder()->getMessage();
         return var_export($message, true);
+    }
+    
+    public function addHeader($name, $value)
+    {
+        $this->getMessageBuilder()->addCustomHeader($name, $value);
+        return $this;
     }
 }
