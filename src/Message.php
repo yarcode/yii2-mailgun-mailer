@@ -283,5 +283,6 @@ class Message extends BaseMessage
     public function addHeader($name, $value)
     {
         $this->getMessageBuilder()->addCustomHeader($name, $value);
+        return $this;
     }
 }
