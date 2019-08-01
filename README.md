@@ -33,8 +33,8 @@ Configure `YarCode\Yii2\Mailgun\Mailer` as your mailer.
 ```
   'mailer' => [
       'class' => \YarCode\Yii2\Mailgun\Mailer::class,
-      'domain => 'example.org',
-      'apiKey => 'CHANGE-ME',
+      'domain' => 'example.org',
+      'apiKey' => 'CHANGE-ME',
   ],
 ```
 Now you can send your emails as usual.
